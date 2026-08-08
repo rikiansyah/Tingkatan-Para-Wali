@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diagram Piramida Wali Allah SWT</title>
+
+<style>
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(to bottom, #eef5ff, #ffffff);
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #2c5aa0;
+    margin-bottom: 30px;
+}
+
+/* Piramida */
+.pyramid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.level {
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    padding: 14px 0;
+    clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    transition: transform 0.2s, opacity 0.2s;
+}
+
+.level:hover {
+    transform: scale(1.03);
+    opacity: 0.9;
+}
+
+.l1 { width: 200px; background: #f1c40f; }
+.l2 { width: 260px; background: #e67e22; }
+.l3 { width: 320px; background: #e74c3c; }
+.l4 { width: 380px; background: #9b59b6; }
+.l5 { width: 480px; background: #3498db; }
+.l6 { width: 620px; background: #2ecc71; }
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.modal-content {
+    background: #fff;
+    max-width: 500px;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    color: #2c5aa0;
+}
+
+.close {
+    text-align: right;
+    font-weight: bold;
+    cursor: pointer;
+    color: #e74c3c;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Diagram Piramida Tingkatan Wali Allah SWT</h1>
+
+<div class="pyramid">
+
+    <div class="level l1" onclick="showInfo('quthb')">
+        QUTHB / GHAWTS<br>(1 Orang)
+    </div>
+
+    <div class="level l2" onclick="showInfo('awtad3')">
+        AWTAD<br>(3 Orang)
+    </div>
+
+    <div class="level l3" onclick="showInfo('arkan')">
+        ARKAN / AWTAD<br>(4 Orang)
+    </div>
+
+    <div class="level l4" onclick="showInfo('abdal')">
+        ABDAL<br>(7 Orang)
+    </div>
+
+    <div class="level l5" onclick="showInfo('nujaba')">
+        NUJABA<br>(40 Orang)
+    </div>
+
+    <div class="level l6" onclick="showInfo('akhyar')">
+        AKHYAR<br>(300 Orang)
+    </div>
+
+</div>
+
+<!-- Modal -->
+<div class="modal" id="modal">
+    <div class="modal-content">
+        <div class="close" onclick="closeModal()">✖ Tutup</div>
+        <h2 id="modalTitle"></h2>
+        <p id="modalText"></p>
+    </div>
+</div>
+
+<script>
+const explanations = {
+    quthb: {
+        title: "Quthb / Ghawts (1 Orang)",
+        text: "Quthb atau Ghawts adalah wali tertinggi dalam tasawuf. Ia menjadi poros spiritual dunia pada masanya. Identitasnya dirahasiakan dan tidak dikenal secara umum."
+    },
+    awtad3: {
+        title: "Awtad (3 Orang)",
+        text: "Awtad berarti 'pasak'. Mereka berperan menjaga keseimbangan dunia secara spiritual dan menjadi penopang di bawah Quthb."
+    },
+    arkan: {
+        title: "Arkan / Awtad (4 Orang)",
+        text: "Empat wali yang menjaga empat penjuru mata angin (Timur, Barat, Utara, Selatan). Mereka menjadi tiang kestabilan spiritual bumi."
+    },
+    abdal: {
+        title: "Abdal (7 Orang)",
+        text: "Abdal berarti 'pengganti'. Jika salah satu wafat, Allah menggantinya dengan wali lain. Doa mereka dikenal mustajab."
+    },
+    nujaba: {
+        title: "Nujaba (40 Orang)",
+        text: "Nujaba adalah orang-orang mulia yang membantu Abdal dalam menjaga umat dan menanggung kesulitan manusia."
+    },
+    akhyar: {
+        title: "Akhyar (300 Orang)",
+        text: "Akhyar adalah wali tingkat awal yang sangat saleh. Kebanyakan hidup sebagai orang biasa dan tidak dikenal sebagai wali."
+    }
+};
+
+function showInfo(key) {
+    document.getElementById('modalTitle').innerText = explanations[key].title;
+    document.getElementById('modalText').innerText = explanations[key].text;
+    document.getElementById('modal').style.display = 'flex';
+}
+
+function closeModal() {
+    document.getElementById('modal').style.display = 'none';
+}
+</script>
+
+</body>
+</html>
